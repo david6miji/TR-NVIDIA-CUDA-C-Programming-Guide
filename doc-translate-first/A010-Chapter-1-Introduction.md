@@ -1,61 +1,57 @@
-> Chapter 1. Introduction  
-<span style="color:blue">
-1 장. 소개
-</span>
+# Chapter 1. Introduction  
+> 1 장. 소개
 
->1.1 From Graphics Processing to General-Purpose Parallel Computing  
-<span style="color:blue">
+## 1.1 From Graphics Processing to General-Purpose Parallel Computing  
 1.1 그래픽 처리에서 범용 병렬 컴퓨팅에 이르기까지
-</span>
+
 
 Driven by the insatiable market demand for realtime, high-definition 3D graphics, the programmable Graphic Processor Unit or GPU has evolved into a highly parallel, multithreaded, manycore processor with tremendous computational horsepower and very high memory bandwidth, as illustrated by Figure 1-1.  
-<span style="color:blue">
-실시간 끊임없는 시장 수요에 힘입어, 고화질 3D 그래픽, 프로그래밍 가능 그래픽 프로세서 유닛이나 GPU는 그림 1-1과 같이, 엄청난 연산 능력과 매우 높은 메모리 대역폭을 가진 고도의 병렬, 멀티스레드, 매니코어 프로세서로 발전했습니다.
-</span>
 
-2 CUDA C Programming Guide Version 4.2  
-<span style="color:blue">
-2 CUDA C 프로그래밍 가이드 버전 4.2 
-</span>
+> 실시간 끊임없는 시장 수요에 힘입어, 고화질 3D 그래픽, 프로그래밍 가능 그래픽 프로세서 유닛이나 GPU는 그림 1-1과 같이, 엄청난 연산 능력과 매우 높은 메모리 대역폭을 가진 고도의 병렬, 멀티스레드, 매니코어 프로세서로 발전했습니다.
+
+
+# 2 CUDA C Programming Guide Version 4.2  
+>2 CUDA C 프로그래밍 가이드 버전 4.2 
+
  
 Figure 1-1. Floating-Point Operations per Second and Memory Bandwidth for the CPU and GPU   
-그림 1-1. CPU 및 GPU의 초당 부동 소수점 연산 및 메모리 대역폭
+> 그림 1-1. CPU 및 GPU의 초당 부동 소수점 연산 및 메모리 대역폭
 
-CUDA C Programming Guide Version 4.2 3 
-CUDA C 프로그래밍 가이드 버전 4.2 3 
+CUDA C Programming Guide Version 4.2 3
+> CUDA C 프로그래밍 가이드 버전 4.2 3 
  
 The reason behind the discrepancy in floating-point capability between the CPU and the GPU is that the GPU is specialized for compute-intensive, highly parallel computation – exactly what graphics rendering is about – and therefore designed such that more transistors are devoted to data processing rather than data caching and flow control, as schematically illustrated by Figure 1-2.  
-CPU와 GPU 간의 부동 소수점 기능의 불일치에 대한 이유는 GPU가 연산 집약형이고 고도의 병렬 계산 (정확히 그래픽 렌더링 같은)에 특화되어 있어서, 더 많은 트랜지스터가 데이터 캐싱이나 흐름 제어보다는 데이터 처리에만 사용되도록 설계되어 있다는 것입니다(그림 1-2에 개략적으로 설명되어 있습니다).
+> CPU와 GPU 간의 부동 소수점 기능의 불일치에 대한 이유는 GPU가 연산 집약형이고 고도의 병렬 계산 (정확히 그래픽 렌더링 같은)에 특화되어 있어서, 더 많은 트랜지스터가 데이터 캐싱이나 흐름 제어보다는 데이터 처리에만 사용되도록 설계되어 있다는 것입니다(그림 1-2에 개략적으로 설명되어 있습니다).
  
 Figure 1-2. The GPU Devotes More Transistors to Data Processing 
-그림 1-2. GPU는 데이터 처리에 더 많은 트랜지스터를 사용합니다.
+> 그림 1-2. GPU는 데이터 처리에 더 많은 트랜지스터를 사용합니다.
 
 More specifically, the GPU is especially well-suited to address problems that can be expressed as data-parallel computations – the same program is executed on many data elements in parallel – with high arithmetic intensity – the ratio of arithmetic operations to memory operations.  
-구체적으로, GPU는 데이터 병렬 계산(같은 프로그램이 여러 데이터 요소에서 병렬로 실행됨)과 높은 산술 강도 (산술 연산과 메모리 연산의 비율)로 표현할 수 있는 문제를 해결하는 데 특히 적합합니다.
+> 구체적으로, GPU는 데이터 병렬 계산(같은 프로그램이 여러 데이터 요소에서 병렬로 실행됨)과 높은 산술 강도 (산술 연산과 메모리 연산의 비율)로 표현할 수 있는 문제를 해결하는 데 특히 적합합니다.
 
 Because the same program is executed for each data element, there is a lower requirement for sophisticated flow control, and because it is executed on many data elements and has high arithmetic intensity, the memory access latency can be hidden with calculations instead of big data caches. 
-동일한 프로그램이 각 데이터 요소에 실행되기 때문에 정교한 흐름 제어에 대한 요구 사항이 낮으며 많은 데이터 요소에서 실행되고 높은 산술 강도를 가지기 때문에 큰 데이터 캐시 대신 계산을 통해 메모리 액세스 대기 시간을 숨길 수 있습니다.
+> 동일한 프로그램이 각 데이터 요소에 실행되기 때문에 정교한 흐름 제어에 대한 요구 사항이 낮으며 많은 데이터 요소에서 실행되고 높은 산술 강도를 가지기 때문에 큰 데이터 캐시 대신 계산을 통해 메모리 액세스 대기 시간을 숨길 수 있습니다.
 
 Data-parallel processing maps data elements to parallel processing threads. 
-데이터 병렬 처리는 데이터 요소를 병렬 처리 스레드에 매핑합니다.
+> 데이터 병렬 처리는 데이터 요소를 병렬 처리 스레드에 매핑합니다.
 
 Many applications that process large data sets can use a data-parallel programming model to speed up the computations. 
-대형 데이터 세트를 처리하는 많은 애플리케이션은 데이터 병렬 프로그래밍 모델을 사용하여 계산 속도를 높일 수 있습니다.
+> 대형 데이터 세트를 처리하는 많은 애플리케이션은 데이터 병렬 프로그래밍 모델을 사용하여 계산 속도를 높일 수 있습니다.
 
 In 3D rendering, large sets of pixels and vertices are mapped to parallel threads. 
-3D 렌더링에서 픽셀과 꼭지점의 큰 세트는 병렬 스레드에 매핑됩니다.
+> 3D 렌더링에서 픽셀과 꼭지점의 큰 세트는 병렬 스레드에 매핑됩니다.
 
 Similarly, image and media processing applications such as post-processing of rendered images, video encoding and decoding, image scaling, stereo vision, and pattern recognition can map image blocks and pixels to parallel processing threads. 
-마찬가지로 렌더링된 이미지의 후 처리, 비디오 인코딩 및 디코딩, 이미지 스케일링, 스테레오 비전 및 패턴 인식과 같은 이미지와 미디어 처리 애플리케이션은 이미지 블록과 픽셀을 병렬 처리 스레드로 매핑할 수 있습니다.
+> 마찬가지로 렌더링된 이미지의 후 처리, 비디오 인코딩 및 디코딩, 이미지 스케일링, 스테레오 비전 및 패턴 인식과 같은 이미지와 미디어 처리 애플리케이션은 이미지 블록과 픽셀을 병렬 처리 스레드로 매핑할 수 있습니다.
 
 In fact, many algorithms outside the field of image rendering and processing are accelerated by data-parallel processing, from general signal processing or physics simulation to computational finance or computational biology. 
 실제로 이미지 렌더링 및 처리 분야 이외의 많은 알고리즘은 일반 신호 처리나 물리 시뮬레이션에서 전산 금융 또는 전산 생물학에 이르기까지 데이터 병렬 처리로 가속화됩니다.
 
-1.2 CUDA™: a General-Purpose Parallel Computing Architecture 
-1.2 CUDA™: 범용 병렬 컴퓨팅 아키텍처
+## 1.2 CUDA™: a General-Purpose Parallel Computing Architecture 
+> 1.2 CUDA™: 범용 병렬 컴퓨팅 아키텍처
 
 In November 2006, NVIDIA introduced CUDA™, a general purpose parallel computing architecture – with a new parallel programming model and instruction set architecture – that leverages the parallel compute engine in NVIDIA GPUs to solve many complex computational problems in a more efficient way than on a CPU. 
-2006년 11월에, NVIDIA는 범용 병렬 컴퓨팅 아키텍처인 CUDA™을 새로운 병렬 프로그래밍 모델 및 명령어 세트 아키텍처와 함께 도입하여 NVIDIA GPU의 병렬 컴퓨팅 엔진을 활용하여 CPU보다 더 효율적인 방법으로 복잡한 컴퓨팅 문제를 해결합니다.
+> 2006년 11월에, NVIDIA는 범용 병렬 컴퓨팅 아키텍처인 CUDA™을 새로운 병렬 프로그래밍 모델 및 명령어 세트 아키텍처와 함께 도입하여 NVIDIA GPU의 병렬 컴퓨팅 엔진을 활용하여 CPU보다 더 효율적인 방법으로 복잡한 컴퓨팅 문제를 해결합니다.
 
 CUDA comes with a software environment that allows developers to use C as a high-level programming language. 
 CUDA는 개발자가 C를 하이 레벨 프로그래밍 언어로 사용할 수 있는 소프트웨어 환경을 제공합니다.
