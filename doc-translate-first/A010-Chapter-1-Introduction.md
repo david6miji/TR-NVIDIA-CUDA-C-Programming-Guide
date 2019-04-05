@@ -104,8 +104,11 @@ A multithreaded program is partitioned into blocks of threads that execute indep
 ## 1.4 Document’s Structure 
 > 1.4 문서의 구조
 
-This document is organized into the following chapters:  Chapter 1 is a general introduction to CUDA.  
-> 이 문서는 다음 장으로 구성되어 있습니다: 1 장은 CUDA에 대한 일반적인 소개입니다.
+This document is organized into the following chapters: 
+> 이 문서는 다음 장으로 구성되어 있습니다: 
+
+Chapter 1 is a general introduction to CUDA.  
+> 1 장은 CUDA에 대한 일반적인 소개입니다.
 
 Chapter 2 outlines the CUDA programming model.  
 > 2 장에서는 CUDA 프로그래밍 모델에 대해 간략히 설명합니다. 
