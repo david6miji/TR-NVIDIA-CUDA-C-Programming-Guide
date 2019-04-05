@@ -1,21 +1,22 @@
-> Chapter 1. Introduction
-~~~
+> Chapter 1. Introduction  
+<span style="color:blue">
 1 장. 소개
-~~~
+</span>
 
->1.1 From Graphics Processing to General-Purpose Parallel Computing 
-~~~
+>1.1 From Graphics Processing to General-Purpose Parallel Computing  
+<span style="color:blue">
 1.1 그래픽 처리에서 범용 병렬 컴퓨팅에 이르기까지
-~~~
+</span>
 
-Driven by the insatiable market demand for realtime, high-definition 3D graphics, the programmable Graphic Processor Unit or GPU has evolved into a highly parallel, multithreaded, manycore processor with tremendous computational horsepower and very high memory bandwidth, as illustrated by Figure 1-1.
+Driven by the insatiable market demand for realtime, high-definition 3D graphics, the programmable Graphic Processor Unit or GPU has evolved into a highly parallel, multithreaded, manycore processor with tremendous computational horsepower and very high memory bandwidth, as illustrated by Figure 1-1.  
+<span style="color:blue">
+실시간 끊임없는 시장 수요에 힘입어, 고화질 3D 그래픽, 프로그래밍 가능 그래픽 프로세서 유닛이나 GPU는 그림 1-1과 같이, 엄청난 연산 능력과 매우 높은 메모리 대역폭을 가진 고도의 병렬, 멀티스레드, 매니코어 프로세서로 발전했습니다.
+</span>
 
-
-    실시간 끊임없는 시장 수요에 힘입어, 고화질 3D 그래픽, 프로그래밍 가능 그래픽 프로세서 유닛이나 GPU는 그림 1-1과 같이, 엄청난 연산 능력과 매우 높은 메모리 대역폭을 가진 고도의 병렬, 멀티스레드, 매니코어 프로세서로 발전했습니다.
-
-
-2 CUDA C Programming Guide Version 4.2 
+2 CUDA C Programming Guide Version 4.2  
+<span style="color:blue">
 2 CUDA C 프로그래밍 가이드 버전 4.2 
+</span>
  
 Figure 1-1. Floating-Point Operations per Second and Memory Bandwidth for the CPU and GPU   
 그림 1-1. CPU 및 GPU의 초당 부동 소수점 연산 및 메모리 대역폭
